@@ -253,7 +253,7 @@ class ScheduleService:
         """
         if target_time is None:
             target_time = datetime.now(self._timezone)
-            
+        
         weekday = target_time.weekday()
         day_name = DAYS_UA.get(weekday)
         
@@ -273,81 +273,64 @@ class ScheduleService:
     
     def get_week_schedule(self, group: str, week: Optional[int] = None) -> dict[str, List[LessonModel]]:
         """
-        Отримує розклад на весь тиждень.
+        Отримує розклад на весь тиждень для групи.
         
         Args:
             group: Назва групи
-            week: Номер тижня (якщо None, поточний)
+            week: Номер тижня (якщо None, використовується поточний)
             
         Returns:
-            Словник, де ключ - день, значення - список занять.
+            Словник з розкладом на тиждень
         """
         if week is None:
             week = self.get_current_week()
-        
+            
         week_schedule = {}
-        for day_name in DAYS_UA.values():
-            lessons = self.get_day_lessons(group, day_name, week)
+        for day in DAYS_UA.values():
+            lessons = self.get_day_lessons(group, day, week)
             if lessons:
-                week_schedule[day_name] = lessons
+                week_schedule[day] = lessons
                 
         return week_schedule
     
     def time_until_lesson(self, lesson: LessonModel, target_time: Optional[datetime] = None) -> str:
         """
-        Розраховує час до початку заняття.
+        Розраховує час до початку наступної пари.
         
         Args:
-            lesson: Модель заняття
-            target_time: Час для розрахунку (якщо None, поточний)
+            lesson: Об'єкт заняття
+            target_time: Час для розрахунку (якщо None, використовується поточний)
             
         Returns:
-            Відформатований рядок (напр., "через 1 год 20 хв" або "через 30 хв").
+            Форматований рядок з часом до початку
         """
         if target_time is None:
             target_time = datetime.now(self._timezone)
         
-        lesson_start_str = LESSON_TIMES.get(lesson.pair)[0]
-        hour, minute = map(int, lesson_start_str.split(':'))
+        lesson_start_time_str = LESSON_TIMES.get(lesson.pair, ("00:00", "00:00"))[0]
         
-        lesson_time = target_time.replace(hour=hour, minute=minute, second=0, microsecond=0)
-        
-        delta = lesson_time - target_time
-        
-        if delta.total_seconds() < 0:
-            return "вже почалося"
-        
-        total_minutes = int(delta.total_seconds() / 60)
-        hours = total_minutes // 60
-        minutes = total_minutes % 60
-        
-        if hours > 0 and minutes > 0:
-            return f"через {hours} год {minutes} хв"
-        elif hours > 0:
-            return f"через {hours} год"
-        else:
-            return f"через {minutes} хв"
+        try:
+            lesson_start_time = self._timezone.localize(
+                datetime.combine(target_time.date(), time.fromisoformat(lesson_start_time_str))
+            )
+            
+            # Якщо пара вже мала розпочатися сьогодні
+            if lesson_start_time < target_time:
+                return "вже почалася"
 
+            delta = lesson_start_time - target_time
+            
+            hours, remainder = divmod(delta.seconds, 3600)
+            minutes, _ = divmod(remainder, 60)
+            
+            if hours > 0:
+                return f"через {hours} год {minutes} хв"
+            else:
+                return f"через {minutes} хв"
+                
+        except Exception as e:
+            logger.error(f"Помилка розрахунку часу до пари: {e}")
+            return "невідомо"
 
-# Створюємо глобальний екземпляр сервісу
+# Створюємо єдиний екземпляр сервісу для всього додатку
 schedule_service = ScheduleService()
-
-# Залишаємо старі функції для можливої зворотної сумісності
-# (краще поступово їх рефакторити і видалити)
-def get_current_week(target_date: Optional[datetime] = None) -> int:
-    return schedule_service.get_current_week(target_date)
-
-def is_group_chat(update: Update) -> bool:
-    return schedule_service.is_group_chat(update)
-
-def get_user_group(user_id: str, chat_id: str = None) -> str:
-    return schedule_service.get_user_group(user_id, chat_id)
-
-def get_day_schedule(group: str, day: str, week: int = None) -> list:
-    return schedule_service.get_day_lessons(group, day, week)
-
-def format_schedule_text(group: str, day: str, lessons: list, week: int) -> str:
-    return schedule_service.format_schedule_text(group, day, lessons, week)
-
-def get_next_lesson(user_group: str):
-    return schedule_service.get_next_lesson(user_group) 
