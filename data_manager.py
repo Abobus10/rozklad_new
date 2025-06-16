@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Модуль для управления данными бота.
+Модуль для керування даними бота.
 
-Использует Pydantic модели для типизации и валидации данных.
-Предоставляет thread-safe операции с файлами и кешированием данных.
+Використовує Pydantic моделі для типізації та валідації даних.
+Надає thread-safe операції з файлами та кешуванням даних.
 """
 
 import json
@@ -26,7 +26,7 @@ from models import (
 
 logger = logging.getLogger(__name__)
 
-# Thread-safe locks для операций с файлами
+# Thread-safe замки для операцій з файлами
 _file_locks = {
     'users': Lock(),
     'schedule': Lock(),
@@ -35,10 +35,10 @@ _file_locks = {
 
 
 class DataManager:
-    """Класс для управления данными бота с типизацией и валидацией."""
+    """Клас для керування даними бота з типізацією та валідацією."""
     
     def __init__(self):
-        """Инициализация менеджера данных."""
+        """Ініціалізація менеджера даних."""
         self._users_data: Dict[str, UserModel] = {}
         self._schedule_data: Optional[ScheduleDataModel] = None
         self._group_chats_data: Dict[str, GroupChatModel] = {}
@@ -48,72 +48,72 @@ class DataManager:
     
     def _load_json_file(self, filepath: str, default_data=None) -> dict:
         """
-        Загружает JSON файл с обработкой ошибок.
+        Завантажує JSON файл з обробкою помилок.
         
         Args:
-            filepath: Путь к файлу
-            default_data: Данные по умолчанию при ошибке
+            filepath: Шлях до файлу
+            default_data: Дані за замовчуванням у разі помилки
             
         Returns:
-            Загруженные данные или данные по умолчанию
+            Завантажені дані або дані за замовчуванням
         """
         file_path = Path(filepath)
         
         if not file_path.exists():
-            logger.warning(f"Файл {filepath} не найден. Создаю с данными по умолчанию.")
+            logger.warning(f"Файл {filepath} не знайдено. Створюю з даними за замовчуванням.")
             return default_data or {}
         
         try:
             with open(file_path, "r", encoding="utf-8") as f:
                 return json.load(f)
         except json.JSONDecodeError as e:
-            logger.error(f"Ошибка парсинга JSON в файле {filepath}: {e}")
-            # Создаем резервную копию поврежденного файла
+            logger.error(f"Помилка парсингу JSON у файлі {filepath}: {e}")
+            # Створюємо резервну копію пошкодженого файлу
             backup_path = file_path.with_suffix(f'.backup_{int(datetime.now().timestamp())}')
             file_path.rename(backup_path)
-            logger.info(f"Создана резервная копия: {backup_path}")
+            logger.info(f"Створено резервну копію: {backup_path}")
             return default_data or {}
         except Exception as e:
-            logger.error(f"Неожиданная ошибка при чтении {filepath}: {e}")
+            logger.error(f"Неочікувана помилка при читанні {filepath}: {e}")
             return default_data or {}
     
     def _save_json_file(self, filepath: str, data: dict) -> bool:
         """
-        Сохраняет данные в JSON файл с обработкой ошибок.
+        Зберігає дані в JSON файл з обробкою помилок.
         
         Args:
-            filepath: Путь к файлу
-            data: Данные для сохранения
+            filepath: Шлях до файлу
+            data: Дані для збереження
             
         Returns:
-            True если сохранение успешно, False в противном случае
+            True, якщо збереження успішне, False в іншому випадку
         """
         try:
             file_path = Path(filepath)
-            # Создаем директорию если не существует
+            # Створюємо директорію, якщо не існує
             file_path.parent.mkdir(parents=True, exist_ok=True)
             
-            # Сначала сохраняем во временный файл
+            # Спочатку зберігаємо у тимчасовий файл
             temp_path = file_path.with_suffix('.tmp')
             with open(temp_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, ensure_ascii=False, default=str)
             
-            # Если сохранение успешно, заменяем основной файл
+            # Якщо збереження успішне, замінюємо основний файл
             temp_path.replace(file_path)
             return True
             
         except Exception as e:
-            logger.error(f"Ошибка сохранения {filepath}: {e}")
+            logger.error(f"Помилка збереження {filepath}: {e}")
             return False
     
     def _load_all_data(self) -> None:
-        """Загружает все данные при инициализации."""
+        """Завантажує всі дані при ініціалізації."""
         self._load_users_data()
         self._load_schedule_data()
         self._load_group_chats_data()
     
     def _load_users_data(self) -> None:
-        """Загружает данные пользователей с валидацией."""
+        """Завантажує дані користувачів з валідацією."""
         with _file_locks['users']:
             raw_data = self._load_json_file(USERS_FILE, {})
             
@@ -122,30 +122,30 @@ class DataManager:
                 try:
                     self._users_data[user_id] = UserModel.model_validate(user_data)
                 except ValidationError as e:
-                    logger.warning(f"Невалидные данные пользователя {user_id}: {e}")
-                    # Используем модель по умолчанию для невалидных данных
+                    logger.warning(f"Невалідні дані користувача {user_id}: {e}")
+                    # Використовуємо модель за замовчуванням для невалідних даних
                     self._users_data[user_id] = UserModel()
     
     def _load_schedule_data(self) -> None:
-        """Загружает данные расписания с валидацией."""
+        """Завантажує дані розкладу з валідацією."""
         with _file_locks['schedule']:
             raw_data = self._load_json_file(SCHEDULE_FILE, {"groups": {}})
             
             try:
                 self._schedule_data = ScheduleDataModel.model_validate(raw_data)
                 
-                # Устанавливаем дату начала семестра
+                # Встановлюємо дату початку семестру
                 if self._schedule_data.startDate:
                     self._schedule_start_date = datetime.strptime(
                         self._schedule_data.startDate, "%Y-%m-%d"
                     )
                     
             except ValidationError as e:
-                logger.error(f"Ошибка валидации данных расписания: {e}")
+                logger.error(f"Помилка валідації даних розкладу: {e}")
                 self._schedule_data = ScheduleDataModel()
     
     def _load_group_chats_data(self) -> None:
-        """Загружает данные групповых чатов с валидацией."""
+        """Завантажує дані групових чатів з валідацією."""
         with _file_locks['group_chats']:
             raw_data = self._load_json_file(GROUP_CHATS_FILE, {})
             
@@ -154,33 +154,33 @@ class DataManager:
                 try:
                     self._group_chats_data[chat_id] = GroupChatModel.model_validate(chat_data)
                 except ValidationError as e:
-                    logger.warning(f"Невалидные данные чата {chat_id}: {e}")
+                    logger.warning(f"Невалідні дані чату {chat_id}: {e}")
                     self._group_chats_data[chat_id] = GroupChatModel()
     
-    # Методы для работы с пользователями
+    # Методи для роботи з користувачами
     def get_user(self, user_id: str) -> Optional[UserModel]:
         """
-        Получает модель пользователя по ID.
+        Отримує модель користувача за ID.
         
         Returns:
-            UserModel если пользователь найден, иначе None.
+            UserModel, якщо користувач знайдений, інакше None.
         """
         return self._users_data.get(user_id)
     
     def update_user(self, user_id: str, **kwargs) -> bool:
         """
-        Обновляет данные пользователя.
+        Оновлює дані користувача.
         
         Args:
-            user_id: ID пользователя
-            **kwargs: Поля для обновления
+            user_id: ID користувача
+            **kwargs: Поля для оновлення
             
         Returns:
-            True если обновление успешно
+            True, якщо оновлення успішне
         """
         try:
             current_user = self.get_user(user_id)
-            # Если пользователя нет, создаем новую модель
+            # Якщо користувача немає, створюємо нову модель
             if current_user is None:
                 current_user = UserModel()
             
@@ -192,11 +192,11 @@ class DataManager:
             return self.save_users_data()
             
         except ValidationError as e:
-            logger.error(f"Ошибка валидации при обновлении пользователя {user_id}: {e}")
+            logger.error(f"Помилка валідації при оновленні користувача {user_id}: {e}")
             return False
     
     def save_users_data(self) -> bool:
-        """Сохраняет данные пользователей."""
+        """Зберігає дані користувачів."""
         with _file_locks['users']:
             data = {
                 user_id: user.model_dump(mode='json') 
@@ -204,36 +204,36 @@ class DataManager:
             }
             return self._save_json_file(USERS_FILE, data)
     
-    # Методы для работы с расписанием
+    # Методи для роботи з розкладом
     @property
     def schedule_data(self) -> ScheduleDataModel:
-        """Возвращает данные расписания."""
+        """Повертає дані розкладу."""
         return self._schedule_data or ScheduleDataModel()
     
     @property
     def schedule_start_date(self) -> Optional[datetime]:
-        """Возвращает дату начала семестра."""
+        """Повертає дату початку семестру."""
         return self._schedule_start_date
     
     def get_group_schedule(self, group: str) -> Optional[GroupScheduleModel]:
-        """Получает расписание группы."""
+        """Отримує розклад групи."""
         return self._schedule_data.groups.get(group) if self._schedule_data else None
     
     def get_day_lessons(self, group: str, day: str) -> list[LessonModel]:
-        """Получает список пар для группы и дня."""
+        """Отримує список пар для групи та дня."""
         group_schedule = self.get_group_schedule(group)
         if not group_schedule:
             return []
         
         return group_schedule.schedule.get(day, [])
     
-    # Методы для работы с групповыми чатами
+    # Методи для роботи з груповими чатами
     def get_group_chat(self, chat_id: str) -> GroupChatModel:
-        """Получает модель группового чата."""
+        """Отримує модель групового чату."""
         return self._group_chats_data.get(chat_id, GroupChatModel())
     
     def update_group_chat(self, chat_id: str, **kwargs) -> bool:
-        """Обновляет данные группового чата."""
+        """Оновлює дані групового чату."""
         try:
             current_chat = self.get_group_chat(chat_id)
             updated_data = current_chat.model_dump()
@@ -243,11 +243,11 @@ class DataManager:
             return self.save_group_chats_data()
             
         except ValidationError as e:
-            logger.error(f"Ошибка валидации при обновлении чата {chat_id}: {e}")
+            logger.error(f"Помилка валідації при оновленні чату {chat_id}: {e}")
             return False
     
     def save_group_chats_data(self) -> bool:
-        """Сохраняет данные групповых чатов."""
+        """Зберігає дані групових чатів."""
         with _file_locks['group_chats']:
             data = {
                 chat_id: chat.model_dump(mode='json') 
@@ -256,26 +256,26 @@ class DataManager:
             return self._save_json_file(GROUP_CHATS_FILE, data)
     
     def get_all_users_data(self) -> Dict[str, dict]:
-        """Возвращает все данные пользователей в виде словаря."""
+        """Повертає всі дані користувачів у вигляді словника."""
         return {
             user_id: user.model_dump() 
             for user_id, user in self._users_data.items()
         }
     
     def get_all_group_chats(self) -> Dict[str, dict]:
-        """Возвращает все данные групповых чатов в виде словаря."""
+        """Повертає всі дані групових чатів у вигляді словника."""
         return {
             chat_id: chat.model_dump() 
             for chat_id, chat in self._group_chats_data.items()
         }
     
-    # Статистические методы
+    # Статистичні методи
     def get_users_count(self) -> int:
-        """Возвращает количество пользователей."""
+        """Повертає кількість користувачів."""
         return len(self._users_data)
     
     def get_active_users_today(self) -> int:
-        """Возвращает количество активных пользователей сегодня."""
+        """Повертає кількість активних користувачів сьогодні."""
         today = datetime.now().date()
         return sum(
             1 for user in self._users_data.values()
@@ -283,24 +283,24 @@ class DataManager:
         )
     
     def get_groups_count(self) -> int:
-        """Возвращает количество групп в расписании."""
+        """Повертає кількість груп у розкладі."""
         return len(self._schedule_data.groups) if self._schedule_data else 0
 
 
-# Создаем глобальный экземпляр менеджера данных
+# Створюємо глобальний екземпляр менеджера даних
 data_manager = DataManager()
 
-# Обратная совместимость - экспорт старых переменных
+# Обернена сумісність - експорт старих змінних
 users_data = data_manager._users_data
 schedule_data = data_manager.schedule_data
 group_chats_data = data_manager._group_chats_data
 schedule_start_date = data_manager.schedule_start_date
 
-# Экспорт старых функций для обратной совместимости
+# Експорт старих функцій для оберненої сумісності
 def save_users_data():
-    """Сохраняет данные пользователей (для обратной совместимости)."""
+    """Зберігає дані користувачів (для оберненої сумісності)."""
     return data_manager.save_users_data()
 
 def save_group_chat_data():
-    """Сохраняет данные групповых чатов (для обратной совместимости)."""
+    """Зберігає дані групових чатів (для оберненої сумісності)."""
     return data_manager.save_group_chats_data() 

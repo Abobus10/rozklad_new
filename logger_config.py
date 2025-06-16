@@ -1,8 +1,8 @@
 """
-Модуль настройки логирования для Telegram бота.
+Модуль налаштування логування для Telegram-бота.
 
-Обеспечивает структурированное логирование с ротацией файлов,
-цветным выводом в консоль и различными уровнями детализации.
+Забезпечує структуроване логування з ротацією файлів,
+кольоровим виведенням у консоль та різними рівнями деталізації.
 """
 
 import logging
@@ -16,9 +16,9 @@ from config import config
 
 
 class ColoredFormatter(logging.Formatter):
-    """Форматтер с цветным выводом для консоли."""
+    """Форматтер з кольоровим виведенням для консолі."""
     
-    # ANSI цветовые коды
+    # ANSI коди кольорів
     COLORS = {
         'DEBUG': '\033[36m',      # Cyan
         'INFO': '\033[32m',       # Green  
@@ -29,24 +29,24 @@ class ColoredFormatter(logging.Formatter):
     }
     
     def format(self, record: logging.LogRecord) -> str:
-        """Форматирует лог-запись с цветами."""
-        # Добавляем цвет к имени уровня
+        """Форматує лог-запис з кольорами."""
+        # Додаємо колір до імені рівня
         levelname = record.levelname
         if levelname in self.COLORS:
             colored_levelname = f"{self.COLORS[levelname]}{levelname}{self.COLORS['RESET']}"
             record.levelname = colored_levelname
         
-        # Форматируем запись
+        # Форматуємо запис
         formatted = super().format(record)
         
-        # Возвращаем исходное имя уровня
+        # Повертаємо початкове ім'я рівня
         record.levelname = levelname
         
         return formatted
 
 
 class BotLogger:
-    """Класс для настройки логирования бота."""
+    """Клас для налаштування логування бота."""
     
     def __init__(
         self,
@@ -57,14 +57,14 @@ class BotLogger:
         backup_count: int = 5
     ):
         """
-        Инициализация логгера.
+        Ініціалізація логера.
         
         Args:
-            name: Имя логгера
-            log_level: Уровень логирования
-            log_file: Путь к файлу логов
-            max_file_size: Максимальный размер файла в байтах
-            backup_count: Количество резервных файлов
+            name: Ім'я логера
+            log_level: Рівень логування
+            log_file: Шлях до файлу логів
+            max_file_size: Максимальний розмір файлу в байтах
+            backup_count: Кількість резервних файлів
         """
         self.name = name
         self.log_level = getattr(logging, log_level.upper(), logging.INFO)
@@ -76,29 +76,29 @@ class BotLogger:
         self._setup_logger()
     
     def _setup_logger(self) -> None:
-        """Настраивает логгер с консольным и файловым выводом."""
-        # Очищаем существующие обработчики
+        """Налаштовує логер з консольним та файловим виводом."""
+        # Очищуємо існуючі обробники
         self.logger.handlers.clear()
         
-        # Устанавливаем уровень логирования
+        # Встановлюємо рівень логування
         self.logger.setLevel(self.log_level)
         
-        # Создаем консольный обработчик
+        # Створюємо консольний обробник
         self._setup_console_handler()
         
-        # Создаем файловый обработчик если указан файл
+        # Створюємо файловий обробник, якщо вказано файл
         if self.log_file:
             self._setup_file_handler()
         
-        # Предотвращаем дублирование логов
+        # Запобігаємо дублюванню логів
         self.logger.propagate = False
     
     def _setup_console_handler(self) -> None:
-        """Настраивает консольный вывод с цветами."""
+        """Налаштовує консольний вивід з кольорами."""
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setLevel(self.log_level)
         
-        # Используем цветной форматтер для консоли
+        # Використовуємо кольоровий форматтер для консолі
         console_format = (
             "%(asctime)s | %(levelname)-8s | %(name)s:%(funcName)s:%(lineno)d | %(message)s"
         )
@@ -111,12 +111,12 @@ class BotLogger:
         self.logger.addHandler(console_handler)
     
     def _setup_file_handler(self) -> None:
-        """Настраивает файловый вывод с ротацией."""
-        # Создаем директорию для логов если не существует
+        """Налаштовує файловий вивід з ротацією."""
+        # Створюємо директорію для логів, якщо не існує
         log_path = Path(self.log_file)
         log_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # Создаем обработчик с ротацией файлов
+        # Створюємо обробник з ротацією файлів
         file_handler = logging.handlers.RotatingFileHandler(
             filename=self.log_file,
             maxBytes=self.max_file_size,
@@ -125,7 +125,7 @@ class BotLogger:
         )
         file_handler.setLevel(self.log_level)
         
-        # Более подробный формат для файлов
+        # Більш детальний формат для файлів
         file_format = (
             "%(asctime)s | %(levelname)-8s | %(name)s | %(module)s:%(funcName)s:%(lineno)d | "
             "%(message)s | PID:%(process)d"
@@ -139,16 +139,16 @@ class BotLogger:
         self.logger.addHandler(file_handler)
     
     def get_logger(self) -> logging.Logger:
-        """Возвращает настроенный логгер."""
+        """Повертає налаштований логер."""
         return self.logger
 
 
 def setup_logging() -> logging.Logger:
     """
-    Настраивает и возвращает основной логгер приложения.
+    Налаштовує та повертає основний логер додатка.
     
     Returns:
-        Настроенный экземпляр логгера
+        Налаштований екземпляр логера
     """
     bot_logger = BotLogger(
         name="telegram_schedule_bot",
@@ -160,12 +160,12 @@ def setup_logging() -> logging.Logger:
     
     logger = bot_logger.get_logger()
     
-    # Логируем информацию о запуске
+    # Логуємо інформацію про запуск
     logger.info("=" * 60)
-    logger.info("Запуск Telegram бота расписания")
-    logger.info(f"Время запуска: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    logger.info(f"Уровень логирования: {config.log_level}")
-    logger.info(f"Файл логов: {config.log_file}")
+    logger.info("Запуск Telegram-бота розкладу")
+    logger.info(f"Час запуску: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"Рівень логування: {config.log_level}")
+    logger.info(f"Файл логів: {config.log_file}")
     logger.info("=" * 60)
     
     return logger
@@ -173,23 +173,23 @@ def setup_logging() -> logging.Logger:
 
 def get_module_logger(module_name: str) -> logging.Logger:
     """
-    Создает логгер для конкретного модуля.
+    Створює логер для конкретного модуля.
     
     Args:
-        module_name: Имя модуля
+        module_name: Ім'я модуля
         
     Returns:
-        Логгер для модуля
+        Логер для модуля
     """
     return logging.getLogger(f"telegram_schedule_bot.{module_name}")
 
 
 class LoggerMixin:
-    """Миксин для добавления логирования в классы."""
+    """Міксин для додавання логування в класи."""
     
     @property
     def logger(self) -> logging.Logger:
-        """Возвращает логгер для класса."""
+        """Повертає логер для класу."""
         if not hasattr(self, '_logger'):
             class_name = self.__class__.__name__
             self._logger = get_module_logger(class_name)
@@ -197,34 +197,34 @@ class LoggerMixin:
     
     def log_method_call(self, method_name: str, **kwargs) -> None:
         """
-        Логирует вызов метода с параметрами.
+        Логує виклик методу з параметрами.
         
         Args:
-            method_name: Имя метода
-            **kwargs: Параметры метода
+            method_name: Ім'я методу
+            **kwargs: Параметри методу
         """
         params = ", ".join(f"{k}={v}" for k, v in kwargs.items())
-        self.logger.debug(f"Вызов {method_name}({params})")
+        self.logger.debug(f"Виклик {method_name}({params})")
     
     def log_error(self, error: Exception, context: str = "") -> None:
         """
-        Логирует ошибку с контекстом.
+        Логує помилку з контекстом.
         
         Args:
-            error: Исключение
-            context: Дополнительный контекст
+            error: Виняток
+            context: Додатковий контекст
         """
-        error_msg = f"Ошибка: {error}"
+        error_msg = f"Помилка: {error}"
         if context:
             error_msg = f"{context} - {error_msg}"
         
         self.logger.error(error_msg, exc_info=True)
 
 
-# Настраиваем основной логгер при импорте модуля
+# Налаштовуємо основний логер при імпорті модуля
 main_logger = setup_logging()
 
-# Экспортируем основные функции
+# Експортуємо основні функції
 __all__ = [
     'setup_logging',
     'get_module_logger', 

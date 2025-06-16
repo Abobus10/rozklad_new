@@ -1,8 +1,8 @@
 """
-Модуль конфигурации приложения.
+Модуль конфігурації додатка.
 
-Использует Pydantic Settings для валидации и управления конфигурацией.
-Поддерживает загрузку из переменных окружения и .env файлов.
+Використовує Pydantic Settings для валідації та керування конфігурацією.
+Підтримує завантаження зі змінних середовища та .env файлів.
 """
 
 import os
@@ -13,7 +13,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class AppConfig(BaseSettings):
-    """Конфигурация приложения с валидацией."""
+    """Конфігурація додатка з валідацією."""
     
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -22,136 +22,136 @@ class AppConfig(BaseSettings):
         extra="ignore"
     )
     
-    # Основные настройки бота
+    # Основні налаштування бота
     telegram_token: str = Field(
-        description="Токен Telegram бота",
+        description="Токен Telegram-бота",
         min_length=1
     )
     
     admin_ids: Union[str, List[int], int] = Field(
         default=[6051391474],
-        description="Список ID администраторов"
+        description="Список ID адміністраторів"
     )
     
-    # Настройки времени и локализации
+    # Налаштування часу та локалізації
     timezone: str = Field(
         default="Europe/Kiev",
-        description="Часовая зона"
+        description="Часовий пояс"
     )
     
-    # Файлы данных
+    # Файли даних
     users_file: str = Field(
         default="users.json",
-        description="Файл данных пользователей"
+        description="Файл даних користувачів"
     )
     
     schedule_file: str = Field(
         default="schedule.json", 
-        description="Файл расписания"
+        description="Файл розкладу"
     )
     
     group_chats_file: str = Field(
         default="group_chats.json",
-        description="Файл данных групповых чатов"
+        description="Файл даних групових чатів"
     )
     
-    # Настройки уведомлений
+    # Налаштування сповіщень
     daily_reminder_time: str = Field(
         default="08:00",
         pattern=r'^([01]?[0-9]|2[0-3]):[0-5][0-9]$',
-        description="Время ежедневных напоминаний"
+        description="Час щоденних нагадувань"
     )
     
     morning_schedule_time: str = Field(
         default="07:00",
         pattern=r'^([01]?[0-9]|2[0-3]):[0-5][0-9]$',
-        description="Время утренней рассылки расписания"
+        description="Час ранкової розсилки розкладу"
     )
     
-    # Настройки логирования
+    # Налаштування логування
     log_level: str = Field(
         default="INFO",
-        description="Уровень логирования"
+        description="Рівень логування"
     )
     
     log_file: str = Field(
         default="bot.log",
-        description="Файл логов"
+        description="Файл логів"
     )
     
-    # Настройки производительности
+    # Налаштування продуктивності
     max_concurrent_notifications: int = Field(
         default=10,
         ge=1,
         le=100,
-        description="Максимальное количество одновременных уведомлений"
+        description="Максимальна кількість одночасних сповіщень"
     )
     
     request_timeout: int = Field(
         default=30,
         ge=5,
         le=120,
-        description="Таймаут запросов в секундах"
+        description="Таймаут запитів у секундах"
     )
     
     @field_validator('admin_ids')
     @classmethod  
     def validate_admin_ids(cls, v) -> List[int]:
-        """Валидация списка ID администраторов."""
+        """Валідація списку ID адміністраторів."""
         if isinstance(v, str):
-            # Обработка строки из переменных окружения (формат: "123,456,789")
+            # Обробка рядка зі змінних середовища (формат: "123,456,789")
             try:
                 result = [int(admin_id.strip()) for admin_id in v.split(',') if admin_id.strip()]
             except ValueError:
-                raise ValueError("Неверный формат ADMIN_IDS в переменных окружения")
+                raise ValueError("Неправильний формат ADMIN_IDS у змінних середовища")
         elif isinstance(v, list):
-            # Уже список
+            # Вже список
             result = [admin_id for admin_id in v if admin_id > 0]
         elif isinstance(v, int):
-            # Обработка одиночного числа
+            # Обробка одного числа
             result = [v]
         else:
-            raise ValueError("ADMIN_IDS должен быть строкой, списком или числом")
+            raise ValueError("ADMIN_IDS має бути рядком, списком або числом")
         
         if not result:
-            raise ValueError("Должен быть указан хотя бы один администратор")
+            raise ValueError("Має бути вказаний хоча б один адміністратор")
         return result
     
     @field_validator('telegram_token')
     @classmethod
     def validate_telegram_token(cls, v: str) -> str:
-        """Валидация токена Telegram."""
+        """Валідація токена Telegram."""
         if not v:
-            raise ValueError("Токен Telegram не может быть пустым")
-        # Базовая проверка формата токена
+            raise ValueError("Токен Telegram не може бути порожнім")
+        # Базова перевірка формату токена
         if not (len(v) > 40 and ':' in v):
-            raise ValueError("Неверный формат токена Telegram")
+            raise ValueError("Неправильний формат токена Telegram")
         return v
 
 
-# Создаем экземпляр конфигурации
+# Створюємо екземпляр конфігурації
 try:
     config = AppConfig()
 except Exception as e:
-    print(f"Ошибка загрузки конфигурации: {e}")
+    print(f"Помилка завантаження конфігурації: {e}")
     raise
 
 
-# Константы для обратной совместимости
+# Константи для зворотної сумісності
 TELEGRAM_TOKEN = config.telegram_token
 ADMIN_IDS = config.admin_ids
 KYIV_TZ = config.timezone
 TIMEZONE = config.timezone
 
-# Файлы данных
+# Файли даних
 USERS_FILE = config.users_file
 SCHEDULE_FILE = config.schedule_file
 GROUP_CHATS_FILE = config.group_chats_file
 
-# Время уведомлений
+# Час сповіщень
 DAILY_REMINDER_TIME = config.daily_reminder_time
 
-# Словарь дней недели на украинском
+# Словник днів тижня українською
 DAYS_UA: Dict[int, str] = {
     0: "понеділок", 
     1: "вівторок", 
@@ -162,7 +162,7 @@ DAYS_UA: Dict[int, str] = {
     6: "неділя"
 }
 
-# Расписание звонков
+# Розклад дзвінків
 LESSON_TIMES: Dict[int, tuple[str, str]] = {
     1: ("08:00", "09:20"), 
     2: ("09:30", "10:50"), 
@@ -177,13 +177,13 @@ LESSON_TIMES: Dict[int, tuple[str, str]] = {
 
 def get_lesson_time_display(pair_number: int) -> str:
     """
-    Возвращает форматированное время пары.
+    Повертає форматований час пари.
     
     Args:
-        pair_number: Номер пары (1-8)
+        pair_number: Номер пари (1-8)
         
     Returns:
-        Строка с временем пары или "??:??" если пара не найдена
+        Рядок з часом пари або "??:??" якщо пара не знайдена
     """
     time_range = LESSON_TIMES.get(pair_number, ("??:??", "??:??"))
     return f"{time_range[0]} - {time_range[1]}"
@@ -191,26 +191,26 @@ def get_lesson_time_display(pair_number: int) -> str:
 
 def is_valid_day(day: str) -> bool:
     """
-    Проверяет, является ли день валидным.
+    Перевіряє, чи є день валідним.
     
     Args:
-        day: Название дня
+        day: Назва дня
         
     Returns:
-        True если день валидный
+        True, якщо день валідний
     """
     return day in DAYS_UA.values()
 
 
 def get_day_number(day: str) -> int:
     """
-    Возвращает номер дня недели по названию.
+    Повертає номер дня тижня за назвою.
     
     Args:
-        day: Название дня на украинском
+        day: Назва дня українською
         
     Returns:
-        Номер дня (0-6) или -1 если день не найден
+        Номер дня (0-6) або -1, якщо день не знайдено
     """
     for number, name in DAYS_UA.items():
         if name == day:
@@ -218,21 +218,21 @@ def get_day_number(day: str) -> int:
     return -1
 
 
-# Функция для проверки, является ли пользователь администратором
+# Функція для перевірки, чи є користувач адміністратором
 def is_admin(user_id: int) -> bool:
     """
-    Проверяет, является ли пользователь администратором.
+    Перевіряє, чи є користувач адміністратором.
     
     Args:
-        user_id: ID пользователя
+        user_id: ID користувача
         
     Returns:
-        True если пользователь администратор
+        True, якщо користувач є адміністратором
     """
     return user_id in ADMIN_IDS
 
 
-# Экспорт основных настроек для удобства
+# Експорт основних налаштувань для зручності
 __all__ = [
     'config',
     'TELEGRAM_TOKEN',
