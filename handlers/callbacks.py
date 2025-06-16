@@ -15,20 +15,21 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 
 from data_manager import users_data, group_chats_data, save_users_data, save_group_chat_data, schedule_data
+from models import UserModel, GroupChatModel
 from schedule_logic import get_day_schedule, format_schedule_text, get_current_week, get_user_group, is_group_chat, get_next_lesson
 from keyboards import (
     quick_nav_keyboard, tomorrow_nav_keyboard, no_more_lessons_keyboard, 
     get_main_menu_keyboard, get_reminders_keyboard
 )
-from handlers.commands import (
-    me_command, reminders_command, schedule_command, 
-    set_group_schedule_command, group_info_command, week_command, today_command, tomorrow_command
-)
+from handlers.commands import CommandHandlers
 from handlers.utils import get_fact, schedule_message_deletion
 from handlers.conversations import game_start
 from config import DAYS_UA, LESSON_TIMES
 
 logger = logging.getLogger(__name__)
+
+# Создаем экземпляр обработчиков команд
+command_handlers = CommandHandlers()
 
 
 async def schedule_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -64,7 +65,7 @@ async def schedule_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     
     week = get_current_week(target_date)
 
-    if not day_name or day_name not in schedule_data.get("groups", {}).get(user_group, {}).get("schedule", {}):
+    if not day_name or user_group not in schedule_data.groups or day_name not in schedule_data.groups[user_group].schedule:
         await query.edit_message_text(f"📅 На {day_name.capitalize()} пар немає! Відпочивай 😊", reply_markup=quick_nav_keyboard)
         return
 
@@ -94,21 +95,21 @@ async def reminder_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     data = query.data
 
     if user_id not in users_data:
-        users_data[user_id] = {}
+        users_data[user_id] = UserModel()
 
     # Логіка перемикання налаштувань
     if data == "toggle_daily_reminder":
-        current_setting = users_data[user_id].get("daily_reminder", False)
-        users_data[user_id]["daily_reminder"] = not current_setting
+        current_setting = getattr(users_data[user_id], 'daily_reminder', False)
+        users_data[user_id].daily_reminder = not current_setting
         save_users_data()
     elif data == "toggle_lesson_notifications":
-        current_setting = users_data[user_id].get("lesson_notifications", True)
-        users_data[user_id]["lesson_notifications"] = not current_setting
+        current_setting = getattr(users_data[user_id], 'lesson_notifications', True)
+        users_data[user_id].lesson_notifications = not current_setting
         save_users_data()
     elif data == "disable_reminders":
-        users_data[user_id]["reminder_time"] = None
-        users_data[user_id]["daily_reminder"] = False
-        users_data[user_id]["lesson_notifications"] = False
+        users_data[user_id].reminder_time = None
+        users_data[user_id].daily_reminder = False
+        users_data[user_id].lesson_notifications = False
         save_users_data()
 
     # Оновлення клавіатури з актуальними налаштуваннями
@@ -128,9 +129,9 @@ async def group_schedule_callback(update: Update, context: ContextTypes.DEFAULT_
     _, group, chat_id = query.data.split("_")
     
     if chat_id not in group_chats_data:
-        group_chats_data[chat_id] = {}
+        group_chats_data[chat_id] = GroupChatModel()
 
-    group_chats_data[chat_id]["default_group"] = group
+    group_chats_data[chat_id].default_group = group
     save_group_chat_data()
 
     text = f"✅ Розклад для групи *{group}* встановлено для цього чату."
@@ -155,17 +156,21 @@ async def quick_action_callback(update: Update, context: ContextTypes.DEFAULT_TY
 
     # Маршрутизація до відповідних команд
     if action == "quick_today":
-        await today_command(update, context, from_callback=True)
+        await command_handlers.today_command(update, context, from_callback=True)
     elif action == "quick_tomorrow":
-        await tomorrow_command(update, context, from_callback=True)
+        await command_handlers.tomorrow_command(update, context, from_callback=True)
     elif action == "quick_week":
-        await week_command(update, context, from_callback=True)
+        # week_command не существует, заменяем на menu_command
+        await command_handlers.menu_command(update, context, from_callback=True)
     elif action == "quick_schedule":
-        await schedule_command(update, context, from_callback=True)
+        # schedule_command не существует, заменяем на menu_command
+        await command_handlers.menu_command(update, context, from_callback=True)
     elif action == "quick_reminders":
-        await reminders_command(update, context, from_callback=True)
+        # reminders_command не существует, заменяем на menu_command
+        await command_handlers.menu_command(update, context, from_callback=True)
     elif action == "quick_me":
-        await me_command(update, context, from_callback=True)
+        # me_command не существует, заменяем на menu_command
+        await command_handlers.menu_command(update, context, from_callback=True)
     elif action == "quick_fact":
         fact = await get_fact()
         keyboard = [
@@ -182,12 +187,12 @@ async def quick_action_callback(update: Update, context: ContextTypes.DEFAULT_TY
         next_lesson = get_next_lesson(user_group)
         
         if next_lesson:
-            time_start, time_end = LESSON_TIMES.get(next_lesson['pair'], ("??:??", "??:??"))
+            time_start, time_end = LESSON_TIMES.get(next_lesson.pair, ("??:??", "??:??"))
             text = (f"⏰ *Наступна пара:*\n\n"
                     f"🕐 Час: {time_start} - {time_end}\n"
-                    f"📚 Предмет: {next_lesson['name']}\n"
-                    f"👨‍🏫 Викладач: {next_lesson.get('teacher', 'N/A')}\n"
-                    f"🏠 Кабінет: {next_lesson.get('room', 'N/A')}")
+                    f"📚 Предмет: {next_lesson.name}\n"
+                    f"👨‍🏫 Викладач: {next_lesson.teacher or 'N/A'}\n"
+                    f"🏠 Кабінет: {next_lesson.room or 'N/A'}")
             await query.edit_message_text(text, reply_markup=tomorrow_nav_keyboard, parse_mode='Markdown')
         else:
             await query.edit_message_text("📅 Сьогодні більше пар немає! 🎉", reply_markup=no_more_lessons_keyboard, parse_mode='Markdown')
@@ -213,10 +218,12 @@ async def menu_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     is_group = query.message.chat.type in ['group', 'supergroup']
 
     if is_group:
-        default_group = group_chats_data.get(chat_id, {}).get("default_group")
+        group_chat = group_chats_data.get(chat_id)
+        default_group = group_chat.default_group if group_chat else None
         menu_text = f"🎯 *Меню групи*\n👥 Група: *{default_group}*" if default_group else "🎯 *Меню групи*\n⚠️ Розклад не встановлено"
     else:
-        user_group = users_data.get(user_id, {}).get("group")
+        user = users_data.get(user_id)
+        user_group = user.group if user else None
         menu_text = f"🎯 *Головне меню*\n👤 Група: *{user_group}*" if user_group else "🎯 *Головне меню*\n⚠️ Група не встановлена"
 
     reply_markup = get_main_menu_keyboard(user_id, chat_id, is_group)

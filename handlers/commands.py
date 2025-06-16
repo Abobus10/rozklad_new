@@ -97,18 +97,16 @@ class CommandHandlers(LoggerMixin):
     async def stats_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         """Показывает статистику использования бота."""
         try:
-            stats = data_manager.get_bot_stats()
+            total_users = data_manager.get_users_count()
+            active_today = data_manager.get_active_users_today()
+            total_groups = data_manager.get_groups_count()
             
             stats_text = (
                 f"📊 *Статистика бота*\n\n"
-                f"👤 Всего пользователей: {stats.total_users}\n"
-                f"👥 Групповых чатов: {stats.total_groups}\n"
-                f"📈 Активных сегодня: {stats.active_users_today}\n"
-                f"💬 Сообщений отправлено: {stats.total_messages_sent}"
+                f"👤 Всего пользователей: {total_users}\n"
+                f"👥 Групп в расписании: {total_groups}\n"
+                f"📈 Активных сегодня: {active_today}"
             )
-            
-            if stats.uptime:
-                stats_text += f"\n⏱ Время работы: {stats.uptime}"
             
             message = await update.message.reply_text(
                 stats_text, 
@@ -134,9 +132,9 @@ class CommandHandlers(LoggerMixin):
                 return
 
             sent_count, failed_count = 0, 0
-            users = data_manager.get_all_users()
+            users = data_manager.get_all_users_data()
             
-            for user_id in users:
+            for user_id in users.keys():
                 try:
                     await context.bot.send_message(
                         chat_id=user_id,
@@ -221,25 +219,22 @@ class CommandHandlers(LoggerMixin):
         
         if not existing_user:
             # Новый пользователь
-            user_data = {
-                "first_name": user.first_name,
-                "username": user.username,
-                "group": None,
-                "registration_date": datetime.now(),
-                "last_activity": datetime.now()
-            }
-            data_manager.update_user(user_id, user_data)
+            data_manager.update_user(
+                user_id,
+                first_name=user.first_name,
+                username=user.username,
+                registration_date=datetime.now()
+            )
             
             message = await update.message.reply_html(
                 f"Привет, {user.mention_html()}! 👋 Рад тебя видеть."
             )
         else:
             # Существующий пользователь
-            data_manager.update_user_activity(user_id)
-            first_name = existing_user.get("first_name", user.first_name)
+            data_manager.update_user(user_id, first_name=user.first_name, username=user.username)
             
             message = await update.message.reply_html(
-                f"С возвращением, {first_name}! 👋"
+                f"С возвращением, {user.first_name}! 👋"
             )
         
         schedule_message_deletion(message, context, 60)
@@ -277,23 +272,27 @@ class CommandHandlers(LoggerMixin):
             await self.handle_error(update, context, f"menu_command: {e}")
 
     def _build_menu_text(self, user_id: str, chat_id: str, is_group: bool) -> str:
-        """Формирует текст меню в зависимости от контекста."""
+        """Формирует текст для главного меню."""
+        
         if is_group:
-            group_data = data_manager.get_group_chat(chat_id)
-            default_group = group_data.default_group if group_data else None
+            group_chat_data = data_manager.get_group_chat(chat_id)
+            group_name = group_chat_data.default_group or 'не выбрана'
             
-            if default_group:
-                return f"🎯 *Меню группы*\n👥 Группа: *{default_group}*"
-            else:
-                return "🎯 *Меню группы*\n⚠️ Расписание не установлено"
+            menu_text = (
+                f"📋 *Главное меню для группы*\n"
+                f"Текущая группа: *{group_name}*\n\n"
+                "Выберите действие:"
+            )
         else:
             user_data = data_manager.get_user(user_id)
-            user_group = user_data.get("group") if user_data else None
+            group_name = user_data.group if user_data and user_data.group else 'не выбрана'
             
-            if user_group:
-                return f"🎯 *Главное меню*\n👤 Группа: *{user_group}*"
-            else:
-                return "🎯 *Главное меню*\n⚠️ Группа не установлена"
+            menu_text = (
+                "📋 *Главное меню*\n"
+                f"Твоя группа: *{group_name}*\n\n"
+                "Чем могу помочь?"
+            )
+        return menu_text
 
     async def today_command(self, update: Update, context: ContextTypes.DEFAULT_TYPE, 
                            from_callback: bool = False) -> None:

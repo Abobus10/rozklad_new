@@ -156,24 +156,24 @@ class TelegramBot(LoggerMixin):
         
         # Основные команды пользователей
         self.application.add_handler(CommandHandler("start", commands.start))
-        self.application.add_handler(CommandHandler("help", commands.help_command))
+        self.application.add_handler(CommandHandler("help", commands.menu_command))  # помощь = меню
         self.application.add_handler(CommandHandler("menu", commands.menu_command))
         
         # Команды расписания
         self.application.add_handler(CommandHandler("today", commands.today_command))
         self.application.add_handler(CommandHandler("tomorrow", commands.tomorrow_command))
-        self.application.add_handler(CommandHandler("week", commands.week_command))
         self.application.add_handler(CommandHandler("next", commands.next_lesson_command))
-        self.application.add_handler(CommandHandler("schedule", commands.schedule_command))
         
-        # Команды настроек
-        self.application.add_handler(CommandHandler("reminders", commands.reminders_command))
-        self.application.add_handler(CommandHandler("me", commands.me_command))
+        # Команды настроек - заменяем на menu_command так как они не реализованы
+        self.application.add_handler(CommandHandler("reminders", commands.menu_command))
+        self.application.add_handler(CommandHandler("me", commands.menu_command))
+        self.application.add_handler(CommandHandler("week", commands.menu_command))
+        self.application.add_handler(CommandHandler("schedule", commands.menu_command))
         
-        # Дополнительные команды
-        self.application.add_handler(CommandHandler("fact", commands.fact_command))
-        self.application.add_handler(CommandHandler("setgroupschedule", commands.set_group_schedule_command))
-        self.application.add_handler(CommandHandler("groupinfo", commands.group_info_command))
+        # Дополнительные команды - заменяем на menu_command так как они не реализованы  
+        self.application.add_handler(CommandHandler("fact", commands.menu_command))
+        self.application.add_handler(CommandHandler("setgroupschedule", commands.menu_command))
+        self.application.add_handler(CommandHandler("groupinfo", commands.menu_command))
         
         # Обработчики диалогов
         for handler in self._create_conversation_handlers():
@@ -226,7 +226,7 @@ class TelegramBot(LoggerMixin):
         
         self.logger.info("Запланированные задачи настроены")
     
-    async def start(self) -> None:
+    def start(self) -> None:
         """Запускает бота."""
         try:
             self.logger.info("Создание Application...")
@@ -248,29 +248,25 @@ class TelegramBot(LoggerMixin):
             
             self.logger.info("Инициализация завершена. Запускаю polling...")
             
-            # Запускаем бота
-            await self.application.run_polling(
-                drop_pending_updates=True,  # Игнорируем накопившиеся обновления
-                close_loop=False  # Не закрываем event loop
-            )
+            # Запускаем бота с простым подходом для Windows
+            self.application.run_polling(drop_pending_updates=True)
             
         except Exception as e:
             self.logger.critical(f"Критическая ошибка при запуске бота: {e}", exc_info=True)
             raise
     
-    async def stop(self) -> None:
+    def stop(self) -> None:
         """Останавливает бота."""
         if self.application:
             self.logger.info("Остановка бота...")
             try:
-                await self.application.stop()
-                await self.application.shutdown()
+                # При синхронном запуске остановка происходит автоматически
                 self.logger.info("Бот успешно остановлен")
             except Exception as e:
                 self.logger.error(f"Ошибка при остановке бота: {e}")
 
 
-async def main() -> None:
+def main() -> None:
     """Основная функция приложения."""
     bot = TelegramBot()
     
@@ -283,7 +279,7 @@ async def main() -> None:
         main_logger.info(f"Загружено групп: {groups_count}")
         
         # Запускаем бота
-        await bot.start()
+        bot.start()
         
     except KeyboardInterrupt:
         main_logger.info("Получен сигнал прерывания от пользователя")
@@ -291,13 +287,13 @@ async def main() -> None:
         main_logger.critical(f"Неожиданная ошибка: {e}", exc_info=True)
         sys.exit(1)
     finally:
-        await bot.stop()
+        bot.stop()
         main_logger.info("Приложение завершено")
 
 
 if __name__ == "__main__":
     try:
-        asyncio.run(main())
+        main()
     except KeyboardInterrupt:
         print("\nПрограмма прервана пользователем")
     except Exception as e:

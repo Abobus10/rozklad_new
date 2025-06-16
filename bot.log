@@ -1,0 +1,1513 @@
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:05:38 | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:14412
+2025-06-16 17:05:38 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:14412
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:07:31 | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | bot:main:282 | Загружено пользователей: 16 | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | bot:main:283 | Загружено групп: 1 | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:14836
+2025-06-16 17:07:31 | CRITICAL | telegram_schedule_bot.TelegramBot | bot:start:258 | Критическая ошибка при запуске бота: module 'handlers.commands' has no attribute 'help_command' | PID:14836
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 244, in start
+    self._register_handlers()
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 159, in _register_handlers
+    self.application.add_handler(CommandHandler("help", commands.help_command))
+                                                        ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'handlers.commands' has no attribute 'help_command'. Did you mean: 'menu_command'?
+2025-06-16 17:07:31 | CRITICAL | telegram_schedule_bot | bot:main:291 | Неожиданная ошибка: module 'handlers.commands' has no attribute 'help_command' | PID:14836
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 286, in main
+    await bot.start()
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 244, in start
+    self._register_handlers()
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 159, in _register_handlers
+    self.application.add_handler(CommandHandler("help", commands.help_command))
+                                                        ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'handlers.commands' has no attribute 'help_command'. Did you mean: 'menu_command'?
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot.TelegramBot | bot:stop:264 | Остановка бота... | PID:14836
+2025-06-16 17:07:31 | ERROR    | telegram_schedule_bot.TelegramBot | bot:stop:270 | Ошибка при остановке бота: This Application is not running! | PID:14836
+2025-06-16 17:07:31 | INFO     | telegram_schedule_bot | bot:main:295 | Приложение завершено | PID:14836
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:08:17 | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | bot:main:282 | Загружено пользователей: 16 | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot | bot:main:283 | Загружено групп: 1 | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:18532
+2025-06-16 17:08:17 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:18532
+2025-06-16 17:08:17 | CRITICAL | telegram_schedule_bot.TelegramBot | bot:start:258 | Критическая ошибка при запуске бота: This event loop is already running | PID:18532
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1036, in __run
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1025, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 252, in start
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 836, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1047, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-06-16 17:08:18 | CRITICAL | telegram_schedule_bot | bot:main:291 | Неожиданная ошибка: This event loop is already running | PID:18532
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1036, in __run
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1025, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 286, in main
+    await bot.start()
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 252, in start
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 836, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1047, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+2025-06-16 17:08:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:stop:264 | Остановка бота... | PID:18532
+2025-06-16 17:08:18 | ERROR    | telegram_schedule_bot.TelegramBot | bot:stop:270 | Ошибка при остановке бота: This Application is not running! | PID:18532
+2025-06-16 17:08:18 | INFO     | telegram_schedule_bot | bot:main:295 | Приложение завершено | PID:18532
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:08:53 | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | bot:main:288 | Загружено пользователей: 16 | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot | bot:main:289 | Загружено групп: 1 | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:7852
+2025-06-16 17:08:53 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:7852
+2025-06-16 17:08:54 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:7852
+2025-06-16 17:08:54 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:7852
+2025-06-16 17:08:54 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:7852
+2025-06-16 17:08:54 | CRITICAL | telegram_schedule_bot.TelegramBot | bot:start:262 | Критическая ошибка при запуске бота: 'Updater' object has no attribute 'idle' | PID:7852
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 259, in start
+    await self.application.updater.idle()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Updater' object has no attribute 'idle'
+2025-06-16 17:08:54 | CRITICAL | telegram_schedule_bot | bot:main:297 | Неожиданная ошибка: 'Updater' object has no attribute 'idle' | PID:7852
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 292, in main
+    await bot.start()
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 259, in start
+    await self.application.updater.idle()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Updater' object has no attribute 'idle'
+2025-06-16 17:08:54 | INFO     | telegram_schedule_bot.TelegramBot | bot:stop:268 | Остановка бота... | PID:7852
+2025-06-16 17:08:54 | INFO     | telegram_schedule_bot.TelegramBot | bot:stop:274 | Бот успешно остановлен | PID:7852
+2025-06-16 17:08:54 | INFO     | telegram_schedule_bot | bot:main:301 | Приложение завершено | PID:7852
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:09:32 | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | bot:main:281 | Загружено пользователей: 16 | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | bot:main:282 | Загружено групп: 1 | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:20708
+2025-06-16 17:09:32 | CRITICAL | telegram_schedule_bot.TelegramBot | bot:start:257 | Критическая ошибка при запуске бота: Cannot close a running event loop | PID:20708
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1036, in __run
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1025, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1047, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 252, in start
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 836, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1052, in __run
+    loop.close()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\proactor_events.py", line 687, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-06-16 17:09:32 | CRITICAL | telegram_schedule_bot | bot:main:290 | Неожиданная ошибка: Cannot close a running event loop | PID:20708
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1036, in __run
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1025, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1047, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 285, in main
+    await bot.start()
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 252, in start
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 836, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1052, in __run
+    loop.close()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\proactor_events.py", line 687, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:stop:263 | Остановка бота... | PID:20708
+2025-06-16 17:09:32 | ERROR    | telegram_schedule_bot.TelegramBot | bot:stop:269 | Ошибка при остановке бота: This Application is not running! | PID:20708
+2025-06-16 17:09:32 | INFO     | telegram_schedule_bot | bot:main:294 | Приложение завершено | PID:20708
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:11:14 | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | bot:main:281 | Загружено пользователей: 16 | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | bot:main:282 | Загружено групп: 1 | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:17972
+2025-06-16 17:11:14 | CRITICAL | telegram_schedule_bot.TelegramBot | bot:start:257 | Критическая ошибка при запуске бота: Cannot close a running event loop | PID:17972
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 305, in <module>
+    loop = asyncio.get_running_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1036, in __run
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1025, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1047, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 252, in start
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 836, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1052, in __run
+    loop.close()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\proactor_events.py", line 687, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-06-16 17:11:14 | CRITICAL | telegram_schedule_bot | bot:main:290 | Неожиданная ошибка: Cannot close a running event loop | PID:17972
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 305, in <module>
+    loop = asyncio.get_running_loop()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1036, in __run
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1025, in __run
+    loop.run_until_complete(self.initialize())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1047, in __run
+    loop.run_until_complete(self.shutdown())
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 662, in run_until_complete
+    self._check_running()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\base_events.py", line 621, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 285, in main
+    await bot.start()
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\bot.py", line 252, in start
+    await self.application.run_polling(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 836, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1052, in __run
+    loop.close()
+  File "C:\Users\sashulya\miniconda3\Lib\asyncio\proactor_events.py", line 687, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot.TelegramBot | bot:stop:263 | Остановка бота... | PID:17972
+2025-06-16 17:11:14 | ERROR    | telegram_schedule_bot.TelegramBot | bot:stop:269 | Ошибка при остановке бота: This Application is not running! | PID:17972
+2025-06-16 17:11:14 | INFO     | telegram_schedule_bot | bot:main:294 | Приложение завершено | PID:17972
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:14:24 | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:6496
+2025-06-16 17:14:24 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:6496
+2025-06-16 17:14:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:6496
+2025-06-16 17:14:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:6496
+2025-06-16 17:14:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:6496
+2025-06-16 17:14:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:6496
+2025-06-16 17:14:35 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: 'DataManager' object has no attribute 'get_all_users_data' | PID:6496
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_jobqueue.py", line 966, in _run
+    await self.callback(context)
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\notifications.py", line 90, in send_daily_reminders
+    users_to_notify = self._get_users_for_daily_reminder(current_time)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\notifications.py", line 117, in _get_users_for_daily_reminder
+    all_users = data_manager.get_all_users_data()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataManager' object has no attribute 'get_all_users_data'. Did you mean: '_load_users_data'?
+2025-06-16 17:15:35 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: 'DataManager' object has no attribute 'get_all_users_data' | PID:6496
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_jobqueue.py", line 966, in _run
+    await self.callback(context)
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\notifications.py", line 90, in send_daily_reminders
+    users_to_notify = self._get_users_for_daily_reminder(current_time)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\Desktop\бот расписание коледж\notifications.py", line 117, in _get_users_for_daily_reminder
+    all_users = data_manager.get_all_users_data()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataManager' object has no attribute 'get_all_users_data'. Did you mean: '_load_users_data'?
+2025-06-16 17:16:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:21464
+2025-06-16 17:16:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:21464
+2025-06-16 17:16:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:16:24 | PID:21464
+2025-06-16 17:16:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:21464
+2025-06-16 17:16:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:21464
+2025-06-16 17:16:24 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:21464
+2025-06-16 17:16:25 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:21464
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:17:03 | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:21700
+2025-06-16 17:17:03 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:21700
+2025-06-16 17:17:08 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: 'ScheduleDataModel' object has no attribute 'get' | Пользователь: 6051391474 | Чат: 6051391474 | PID:21700
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_application.py", line 1264, in process_update
+    await coroutine
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_handlers\conversationhandler.py", line 857, in handle_update
+    new_state: object = await handler.handle_update(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_handlers\basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\sashulya\Desktop\бот расписание коледж\handlers\conversations.py", line 36, in set_group_start
+    if not schedule_data.get("groups", {}):
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\pydantic\main.py", line 891, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ScheduleDataModel' object has no attribute 'get'
+2025-06-16 17:17:10 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:21700
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:24:05 | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:11536
+2025-06-16 17:24:05 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:11536
+2025-06-16 17:24:06 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:11536
+2025-06-16 17:24:06 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:11536
+2025-06-16 17:24:06 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:11536
+2025-06-16 17:24:06 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:11536
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:24:26 | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:22840
+2025-06-16 17:24:26 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:22840
+2025-06-16 17:24:35 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:22840
+2025-06-16 17:24:41 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:22840
+2025-06-16 17:27:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:15720
+2025-06-16 17:27:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:15720
+2025-06-16 17:27:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:27:06 | PID:15720
+2025-06-16 17:27:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:15720
+2025-06-16 17:27:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:15720
+2025-06-16 17:27:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:15720
+2025-06-16 17:27:06 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:15720
+2025-06-16 17:27:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:15720
+2025-06-16 17:27:21 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:15720
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:28:31 | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:252
+2025-06-16 17:28:31 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:252
+2025-06-16 17:28:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:252
+2025-06-16 17:28:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:252
+2025-06-16 17:28:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:252
+2025-06-16 17:28:32 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:252
+2025-06-16 17:28:32 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:15720
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:28:36 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:252
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:28:37 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:15720
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:28:47 | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:14412
+2025-06-16 17:28:47 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:14412
+2025-06-16 17:28:52 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:14412
+2025-06-16 17:29:02 | INFO     | telegram_schedule_bot.TelegramBot | bot:_signal_handler:49 | Получен сигнал 2. Начинаю graceful shutdown... | PID:14412
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:29:06 | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:8312
+2025-06-16 17:29:06 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:8312
+2025-06-16 17:29:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:8312
+2025-06-16 17:29:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:8312
+2025-06-16 17:29:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:8312
+2025-06-16 17:29:07 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:8312
+2025-06-16 17:29:09 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:8312
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:29:51 | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:3108
+2025-06-16 17:29:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:3108
+2025-06-16 17:29:52 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:8312
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:29:56 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3108
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:30:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:21980
+2025-06-16 17:30:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:21980
+2025-06-16 17:30:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:30:03 | PID:21980
+2025-06-16 17:30:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:21980
+2025-06-16 17:30:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:21980
+2025-06-16 17:30:03 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:21980
+2025-06-16 17:30:04 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:21980
+2025-06-16 17:30:04 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3108
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:30:08 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:3108
+2025-06-16 17:30:09 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:21980
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:30:10 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3108
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:30:14 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:21980
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:30:16 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3108
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:30:20 | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:22460
+2025-06-16 17:30:20 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:22460
+2025-06-16 17:30:23 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: menu_command: 'UserModel' object has no attribute 'get' | PID:22460
+2025-06-16 17:31:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:3900
+2025-06-16 17:31:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:3900
+2025-06-16 17:31:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:31:20 | PID:3900
+2025-06-16 17:31:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:3900
+2025-06-16 17:31:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:3900
+2025-06-16 17:31:20 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:3900
+2025-06-16 17:31:21 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:3900
+2025-06-16 17:31:21 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:22460
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:26 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:27 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:22460
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:31 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:33 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:22460
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:38 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:40 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:22460
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:44 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:31:51 | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:21380
+2025-06-16 17:31:51 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:21380
+2025-06-16 17:31:52 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:57 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:21380
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:31:58 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: tomorrow_command: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:21380
+2025-06-16 17:32:01 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: today_command: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:21380
+2025-06-16 17:32:01 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:32:03 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: tomorrow_command: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:21380
+2025-06-16 17:32:09 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:21380
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:32:13 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:32:24 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:21380
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:32:28 | ERROR    | telegram_schedule_bot.TelegramBot | bot:_error_handler:68 | Ошибка при обработке обновления: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running | PID:3900
+Traceback (most recent call last):
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 715, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 618, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 542, in decorator
+    result = await func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 4164, in get_updates
+    await self._post(
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 630, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\ext\_extbot.py", line 347, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\_bot.py", line 658, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sashulya\miniconda3\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-16 17:32:34 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:20564
+2025-06-16 17:32:34 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:20564
+2025-06-16 17:32:34 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:32:34 | PID:20564
+2025-06-16 17:32:34 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:20564
+2025-06-16 17:32:34 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:20564
+2025-06-16 17:32:34 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 16 | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:20564
+2025-06-16 17:32:35 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:20564

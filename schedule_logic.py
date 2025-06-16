@@ -98,7 +98,7 @@ class ScheduleService:
         
         # Проверяем личные настройки пользователя
         user = data_manager.get_user(user_id_str)
-        if user.group:
+        if user and user.group:
             logger.debug(f"Найдена группа {user.group} для пользователя {user_id_str}")
             return user.group
         

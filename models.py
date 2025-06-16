@@ -45,14 +45,14 @@ class LessonModel(BaseModel):
     name: str = Field(min_length=1, description="Название предмета")
     teacher: Optional[str] = Field(None, description="Преподаватель")
     room: Optional[str] = Field(None, description="Аудитория")
-    weeks: List[Literal[1, 2]] = Field(description="Недели проведения пары")
+    weeks: List[Literal[1, 2, 3, 4]] = Field(description="Недели проведения пары")
     
     @field_validator('weeks')
     @classmethod
     def validate_weeks(cls, v: List[int]) -> List[int]:
         """Валидация списка недель."""
-        if not v or not all(week in [1, 2] for week in v):
-            raise ValueError('Недели должны быть 1 или 2')
+        if not v or not all(week in [1, 2, 3, 4] for week in v):
+            raise ValueError('Недели должны быть от 1 до 4')
         return sorted(list(set(v)))  # Убираем дубликаты и сортируем
 
 

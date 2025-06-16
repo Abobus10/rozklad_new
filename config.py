@@ -6,7 +6,7 @@
 """
 
 import os
-from typing import Dict, List
+from typing import Dict, List, Union
 
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -28,8 +28,8 @@ class AppConfig(BaseSettings):
         min_length=1
     )
     
-    admin_ids: List[int] = Field(
-        default_factory=lambda: [6051391474],
+    admin_ids: Union[str, List[int]] = Field(
+        default=[6051391474],
         description="Список ID администраторов"
     )
     
@@ -95,12 +95,24 @@ class AppConfig(BaseSettings):
     )
     
     @field_validator('admin_ids')
-    @classmethod
-    def validate_admin_ids(cls, v: List[int]) -> List[int]:
+    @classmethod  
+    def validate_admin_ids(cls, v) -> List[int]:
         """Валидация списка ID администраторов."""
-        if not v:
+        if isinstance(v, str):
+            # Обработка строки из переменных окружения (формат: "123,456,789")
+            try:
+                result = [int(admin_id.strip()) for admin_id in v.split(',') if admin_id.strip()]
+            except ValueError:
+                raise ValueError("Неверный формат ADMIN_IDS в переменных окружения")
+        elif isinstance(v, list):
+            # Уже список
+            result = [admin_id for admin_id in v if admin_id > 0]
+        else:
+            raise ValueError("ADMIN_IDS должен быть строкой или списком")
+        
+        if not result:
             raise ValueError("Должен быть указан хотя бы один администратор")
-        return [admin_id for admin_id in v if admin_id > 0]
+        return result
     
     @field_validator('telegram_token')
     @classmethod

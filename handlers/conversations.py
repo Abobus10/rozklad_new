@@ -14,6 +14,7 @@ from telegram import Update, ReplyKeyboardRemove, InlineKeyboardButton, InlineKe
 from telegram.ext import ContextTypes, ConversationHandler
 
 from data_manager import users_data, schedule_data, save_users_data
+from models import UserModel
 from keyboards import get_admin_group_selection_keyboard
 from handlers.utils import schedule_message_deletion
 
@@ -33,12 +34,12 @@ async def set_group_start(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     Надсилає користувачу клавіатуру з доступними групами.
     Переводить діалог у стан CHOOSING_GROUP.
     """
-    if not schedule_data.get("groups", {}):
+    if not schedule_data.groups:
         message = await update.message.reply_text("На жаль, наразі немає доступних груп.")
         schedule_message_deletion(message, context, 60)
         return ConversationHandler.END
 
-    groups = list(schedule_data.get("groups", {}).keys())
+    groups = list(schedule_data.groups.keys())
     keyboard = []
     # Розбивка кнопок по дві в ряду
     for i in range(0, len(groups), 2):
@@ -75,11 +76,11 @@ async def group_chosen(update: Update, context: ContextTypes.DEFAULT_TYPE) -> in
     keyboard = [[InlineKeyboardButton("🎯 Показати меню", callback_data="show_menu")]]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    if chosen_group in schedule_data.get("groups", {}):
+    if chosen_group in schedule_data.groups:
         # Оновлення або створення запису для користувача
         if user_id not in users_data:
-             users_data[user_id] = {"first_name": query.from_user.first_name, "username": query.from_user.username}
-        users_data[user_id]["group"] = chosen_group
+             users_data[user_id] = UserModel()
+        users_data[user_id].group = chosen_group
         save_users_data()
         message = await query.edit_message_text(f"Чудово! Твою групу встановлено як *{chosen_group}*.", reply_markup=reply_markup, parse_mode='Markdown')
     else:
@@ -144,12 +145,15 @@ async def game_guess(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         else:
             # --- Успішне вгадування ---
             attempts = context.user_data['attempts']
-            best_score = users_data.get(user_id, {}).get("best_score")
+            user = users_data.get(user_id)
+            best_score = user.best_score if user and hasattr(user, 'best_score') else None
             reply_text = f"🎉 Вітаю! Ти вгадав число {secret_number} за {attempts} спроб!"
             
             # Оновлення рекорду
             if best_score is None or attempts < best_score:
-                users_data[user_id]["best_score"] = attempts
+                if user_id not in users_data:
+                    users_data[user_id] = UserModel()
+                users_data[user_id].best_score = attempts
                 save_users_data()
                 reply_text += "\nЦе твій новий найкращий результат!"
             

@@ -158,9 +158,14 @@ class DataManager:
                     self._group_chats_data[chat_id] = GroupChatModel()
     
     # Методы для работы с пользователями
-    def get_user(self, user_id: str) -> UserModel:
-        """Получает модель пользователя по ID."""
-        return self._users_data.get(user_id, UserModel())
+    def get_user(self, user_id: str) -> Optional[UserModel]:
+        """
+        Получает модель пользователя по ID.
+        
+        Returns:
+            UserModel если пользователь найден, иначе None.
+        """
+        return self._users_data.get(user_id)
     
     def update_user(self, user_id: str, **kwargs) -> bool:
         """
@@ -175,6 +180,10 @@ class DataManager:
         """
         try:
             current_user = self.get_user(user_id)
+            # Если пользователя нет, создаем новую модель
+            if current_user is None:
+                current_user = UserModel()
+            
             updated_data = current_user.model_dump()
             updated_data.update(kwargs)
             updated_data['last_activity'] = datetime.now()
@@ -245,6 +254,20 @@ class DataManager:
                 for chat_id, chat in self._group_chats_data.items()
             }
             return self._save_json_file(GROUP_CHATS_FILE, data)
+    
+    def get_all_users_data(self) -> Dict[str, dict]:
+        """Возвращает все данные пользователей в виде словаря."""
+        return {
+            user_id: user.model_dump() 
+            for user_id, user in self._users_data.items()
+        }
+    
+    def get_all_group_chats(self) -> Dict[str, dict]:
+        """Возвращает все данные групповых чатов в виде словаря."""
+        return {
+            chat_id: chat.model_dump() 
+            for chat_id, chat in self._group_chats_data.items()
+        }
     
     # Статистические методы
     def get_users_count(self) -> int:
