@@ -1,0 +1,11 @@
+{
+  "6051391474": {
+    "group": "НТ-24-01",
+    "reminder_time": null,
+    "reminder_enabled": true,
+    "next_lesson_notification": true,
+    "next_lesson_time": null,
+    "registration_date": null,
+    "last_activity": null
+  }
+}

@@ -1,0 +1,58 @@
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 17:57:43 | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 0 | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:7028
+2025-06-16 17:57:43 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:7028
+2025-06-16 17:57:44 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:7028
+2025-06-16 17:57:44 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:7028
+2025-06-16 17:57:44 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:7028
+2025-06-16 17:57:44 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:7028
+2025-06-16 18:00:23 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: start: DataManager.update_group_chat() takes 2 positional arguments but 3 were given | PID:7028
+2025-06-16 18:00:40 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: start: DataManager.update_group_chat() takes 2 positional arguments but 3 were given | PID:7028
+2025-06-16 18:00:47 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: today_command: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:7028
+2025-06-16 18:00:48 | ERROR    | telegram_schedule_bot.CommandHandlers | commands:handle_error:46 | Ошибка в команде: tomorrow_command: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:7028
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 18:01:58 | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Инициализация фабрики клавиатур | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 1 | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:15188
+2025-06-16 18:01:58 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:15188
+2025-06-16 18:04:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:164 | ============================================================ | PID:21080
+2025-06-16 18:04:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:165 | Запуск Telegram бота расписания | PID:21080
+2025-06-16 18:04:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:166 | Время запуска: 2025-06-16 18:04:17 | PID:21080
+2025-06-16 18:04:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:167 | Уровень логирования: INFO | PID:21080
+2025-06-16 18:04:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:168 | Файл логов: bot.log | PID:21080
+2025-06-16 18:04:17 | INFO     | telegram_schedule_bot | logger_config:setup_logging:169 | ============================================================ | PID:21080
+2025-06-16 18:04:17 | INFO     | telegram_schedule_bot.NotificationService | notifications:__init__:31 | Инициализация сервиса уведомлений | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.KeyboardFactory | keyboards:__init__:21 | Ініціалізація фабрики клавіатур | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.CommandHandlers | commands:__init__:35 | Инициализация обработчиков команд | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:__init__:45 | Инициализация Telegram бота завершена | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot | bot:main:278 | Загружено пользователей: 1 | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot | bot:main:279 | Загружено групп: 1 | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:232 | Создание Application... | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:_create_conversation_handlers:145 | Создано 3 обработчиков диалогов | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:21080
+2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:21080
