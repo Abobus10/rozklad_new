@@ -56,3 +56,9 @@
 2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:_register_handlers:192 | Все обработчики успешно зарегистрированы | PID:21080
 2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:_setup_scheduled_jobs:227 | Запланированные задачи настроены | PID:21080
 2025-06-16 18:04:18 | INFO     | telegram_schedule_bot.TelegramBot | bot:start:249 | Инициализация завершена. Запускаю polling... | PID:21080
+2025-06-16 18:30:33 | INFO     | telegram_schedule_bot.NotificationService | notifications:send_next_lesson_notifications:393 | Отправка уведомлений о следующей паре (после 7 пары) | PID:21080
+2025-06-16 18:30:33 | ERROR    | telegram_schedule_bot.NotificationService | notifications:_send_next_lesson_to_user:467 | Ошибка отправки уведомления о следующей паре пользователю 6051391474: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:21080
+2025-06-16 18:30:33 | ERROR    | telegram_schedule_bot.NotificationService | notifications:_send_next_lesson_to_group:567 | Ошибка отправки уведомления о следующей паре в группу -1002201060088: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:21080
+2025-06-16 20:00:33 | INFO     | telegram_schedule_bot.NotificationService | notifications:send_next_lesson_notifications:393 | Отправка уведомлений о следующей паре (после 8 пары) | PID:21080
+2025-06-16 20:00:33 | ERROR    | telegram_schedule_bot.NotificationService | notifications:_send_next_lesson_to_user:467 | Ошибка отправки уведомления о следующей паре пользователю 6051391474: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:21080
+2025-06-16 20:00:33 | ERROR    | telegram_schedule_bot.NotificationService | notifications:_send_next_lesson_to_group:567 | Ошибка отправки уведомления о следующей паре в группу -1002201060088: 'ScheduleService' object has no attribute 'get_day_schedule' | PID:21080
