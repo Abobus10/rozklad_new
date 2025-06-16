@@ -16,7 +16,7 @@ from telegram.ext import ContextTypes
 
 from data_manager import users_data, group_chats_data, save_users_data, save_group_chat_data, schedule_data
 from models import UserModel, GroupChatModel
-from schedule_logic import get_day_schedule, format_schedule_text, get_current_week, get_user_group, is_group_chat, get_next_lesson
+from schedule_logic import schedule_service
 from keyboards import (
     quick_nav_keyboard, tomorrow_nav_keyboard, no_more_lessons_keyboard, 
     get_main_menu_keyboard, get_reminders_keyboard
@@ -45,7 +45,7 @@ async def schedule_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     day_part = query.data.replace("schedule_", "")
     user_id = str(query.from_user.id)
     chat_id = str(query.message.chat.id)
-    user_group = get_user_group(user_id, chat_id)
+    user_group = schedule_service.get_user_group(user_id, chat_id)
 
     if not user_group:
         await query.edit_message_text("⚠️ Спочатку встановіть групу.")
@@ -63,14 +63,14 @@ async def schedule_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     else:
         day_name = day_part.replace("day_", "")
     
-    week = get_current_week(target_date)
+    week = schedule_service.get_current_week(target_date)
 
     if not day_name or user_group not in schedule_data.groups or day_name not in schedule_data.groups[user_group].schedule:
         await query.edit_message_text(f"📅 На {day_name.capitalize()} пар немає! Відпочивай 😊", reply_markup=quick_nav_keyboard)
         return
 
-    lessons = get_day_schedule(user_group, day_name, week)
-    schedule_text = format_schedule_text(user_group, day_name, lessons, week)
+    lessons = schedule_service.get_day_lessons(user_group, day_name, week)
+    schedule_text = schedule_service.format_schedule_text(user_group, day_name, lessons, week)
 
     await query.edit_message_text(
         text=schedule_text,
@@ -178,12 +178,12 @@ async def quick_action_callback(update: Update, context: ContextTypes.DEFAULT_TY
         ]
         await query.edit_message_text(f"🧠 *Цікавий факт:*\n\n{fact}", reply_markup=InlineKeyboardMarkup(keyboard))
     elif action == "quick_next":
-        user_group = get_user_group(str(query.from_user.id), str(query.message.chat.id) if is_group_chat(update) else None)
+        user_group = schedule_service.get_user_group(str(query.from_user.id), str(query.message.chat.id) if schedule_service.is_group_chat(update) else None)
         if not user_group:
             await query.answer("⚠️ Спочатку встановіть групу.", show_alert=True)
             return
 
-        next_lesson = get_next_lesson(user_group)
+        next_lesson = schedule_service.get_next_lesson(user_group)
         
         if next_lesson:
             time_start, time_end = LESSON_TIMES.get(next_lesson.pair, ("??:??", "??:??"))

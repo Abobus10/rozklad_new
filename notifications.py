@@ -159,7 +159,7 @@ class NotificationService(LoggerMixin):
                 
                 # Перевіряємо, чи є розклад на завтра
                 tomorrow_week = schedule_service.get_current_week(tomorrow)
-                lessons = schedule_service.get_day_schedule(user_group, day_name, tomorrow_week)
+                lessons = schedule_service.get_day_lessons(user_group, day_name, tomorrow_week)
                 
                 if lessons:
                     schedule_text = schedule_service.format_schedule_text(user_group, day_name, lessons, tomorrow_week)
@@ -257,7 +257,7 @@ class NotificationService(LoggerMixin):
                 await self._remove_old_pinned_message(context, chat_id, chat_info)
                 
                 # Получаем расписание на сегодня
-                lessons = schedule_service.get_day_schedule(group_name, day_name, week)
+                lessons = schedule_service.get_day_lessons(group_name, day_name, week)
                 
                 if not lessons:
                     await self._send_no_lessons_message(context, chat_id, chat_info, group_name, day_name)
@@ -408,30 +408,24 @@ class NotificationService(LoggerMixin):
         week: int, 
         current_lesson_num: int
     ) -> None:
-        """Отправляет уведомления о следующей паре в личные чаты."""
-        users_data = data_manager.get_all_users_data()
+        """Надсилає персональні сповіщення про наступну пару."""
         
-        # Фильтруем пользователей, которым нужно отправить уведомление
+        # Отримуємо користувачів, які ввімкнули сповіщення
         users_to_notify = {
-            user_id: user_data
-            for user_id, user_data in users_data.items()
-            if (
-                user_data.get("lesson_notifications", True) and
-                user_data.get("group") and
-                user_data.get("active", True)
-            )
+            uid: udata for uid, udata in data_manager.get_all_users_data().items()
+            if udata.get("next_lesson_notification", True) and udata.get("group")
         }
         
         if not users_to_notify:
             return
+            
+        self.logger.info(f"Надсилання персональних сповіщень про наступну пару {len(users_to_notify)} користувачам")
         
         semaphore = asyncio.Semaphore(config.max_concurrent_notifications)
-        
         tasks = [
             self._send_next_lesson_to_user(context, user_id, user_data, day_name, week, current_lesson_num, semaphore)
             for user_id, user_data in users_to_notify.items()
         ]
-        
         await asyncio.gather(*tasks, return_exceptions=True)
 
     async def _send_next_lesson_to_user(
@@ -444,39 +438,29 @@ class NotificationService(LoggerMixin):
         current_lesson_num: int,
         semaphore: asyncio.Semaphore
     ) -> None:
-        """Отправляет уведомление о следующей паре одному пользователю."""
+        """Надсилає сповіщення про наступну пару одному користувачеві."""
         async with semaphore:
             try:
                 user_group = user_data["group"]
-                lessons_today = schedule_service.get_day_schedule(user_group, day_name, week)
+                lessons = schedule_service.get_day_lessons(user_group, day_name, week)
                 
-                next_lesson = self._find_next_lesson(lessons_today, current_lesson_num)
+                next_lesson = self._find_next_lesson(lessons, current_lesson_num)
                 
                 if next_lesson:
                     message_text = self._format_next_lesson_message(next_lesson)
-                else:
-                    message_text = (
-                        "🔔 *Уведомление*\n\n"
-                        "📚 Сегодня больше пар нет!\n"
-                        "Можно отдыхать! 😴"
+                    
+                    await context.bot.send_message(
+                        chat_id=user_id, 
+                        text=message_text, 
+                        parse_mode='Markdown'
                     )
-                
-                await self._send_simple_reminder(context, user_id, message_text)
-                
+            except TelegramError as e:
+                await self.handle_telegram_error(user_id, e, "next_lesson_notification")
             except Exception as e:
-                self.logger.error(f"Ошибка отправки уведомления о следующей паре пользователю {user_id}: {e}")
+                self.logger.error(f"Помилка надсилання сповіщення про наступну пару користувачеві {user_id}: {e}")
 
     def _find_next_lesson(self, lessons: List[Dict[str, Any]], current_lesson_num: int) -> Optional[Dict[str, Any]]:
-        """
-        Находит следующую пару после указанной.
-        
-        Args:
-            lessons: Список пар на день
-            current_lesson_num: Номер текущей завершившейся пары
-            
-        Returns:
-            Следующая пара или None
-        """
+        """Знаходить наступну пару в списку."""
         return next(
             (lesson for lesson in lessons if lesson['pair'] > current_lesson_num),
             None
@@ -535,36 +519,30 @@ class NotificationService(LoggerMixin):
         current_lesson_num: int,
         semaphore: asyncio.Semaphore
     ) -> None:
-        """Отправляет уведомление о следующей паре в групповой чат."""
+        """Надсилає сповіщення про наступну пару в один груповий чат."""
         async with semaphore:
             try:
-                group_name = chat_info["default_group"]
-                lessons_today = schedule_service.get_day_schedule(group_name, day_name, week)
-                
-                next_lesson = self._find_next_lesson(lessons_today, current_lesson_num)
-                
+                group_name = chat_info.get("default_group")
+                if not group_name:
+                    return
+
+                lessons = schedule_service.get_day_lessons(group_name, day_name, week)
+                next_lesson = self._find_next_lesson(lessons, current_lesson_num)
+
                 if next_lesson:
                     message_text = self._format_next_lesson_message(next_lesson)
-                else:
-                    message_text = (
-                        "🔔 *Уведомление*\n\n"
-                        "📚 Сегодня больше пар нет!\n"
-                        "Можно отдыхать! 😴"
+                    message = await context.bot.send_message(
+                        chat_id=chat_id,
+                        text=message_text,
+                        parse_mode='Markdown'
                     )
-                
-                message = await context.bot.send_message(
-                    chat_id=chat_id,
-                    text=message_text,
-                    parse_mode='Markdown'
-                )
-                
-                # Планируем удаление через 2 часа
-                schedule_message_deletion(message, context, delay_seconds=2 * 3600)
-                
+                    # Видаляємо повідомлення через 2 години
+                    schedule_message_deletion(message, context, delay_seconds=2 * 3600)
+            
             except TelegramError as e:
-                await self.handle_telegram_error(chat_id, e, "group_next_lesson")
+                await self.handle_telegram_error(chat_id, e, "group_next_lesson_notification")
             except Exception as e:
-                self.logger.error(f"Ошибка отправки уведомления о следующей паре в группу {chat_id}: {e}")
+                self.logger.error(f"Помилка надсилання сповіщення про наступну пару в групу {chat_id}: {e}")
 
 
 # Создаем глобальный экземпляр сервиса
